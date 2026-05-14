@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  margin-top: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #111827;
+  background:
+    linear-gradient(180deg, rgba(195, 128, 216, 0.94), rgb(200, 105, 105) 38%),
+    #b570d5;
+  min-width: 320px;
+}
+
+@layer components {
+  .page-shell {
+    @apply pt-24 pb-14 min-h-screen;
+  }
+
+  .container-xl {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-5xl font-extrabold tracking-tight text-slate-950;
+  }
+
+  .section-copy {
+    @apply text-base md:text-lg text-slate-600 leading-7;
+  }
+
+  .panel {
+    @apply bg-white border border-slate-200 shadow-sm;
+    border-radius: 8px;
+  }
+
+  .premium-card {
+    @apply bg-white border border-slate-200 shadow-sm overflow-hidden transition;
+    border-radius: 8px;
+  }
+
+  .premium-card:hover {
+    @apply border-slate-300 shadow-xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-slate-950 text-white font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed;
+    border-radius: 8px;
+  }
+
+  .btn-primary:hover {
+    @apply bg-slate-800;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center border border-slate-300 bg-white text-slate-900 font-semibold transition;
+    border-radius: 8px;
+  }
+
+  .btn-secondary:hover {
+    @apply border-slate-400 bg-slate-50;
+  }
+
+  .field {
+    @apply w-full border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition;
+    border-radius: 8px;
+  }
+
+  .field:focus {
+    @apply border-slate-950 ring-4 ring-slate-200;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-slate-800 mb-2;
+  }
+
+  .pill {
+    @apply inline-flex items-center border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600;
+    border-radius: 999px;
+  }
+
+  .image-fallback {
+    background:
+      linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(20, 184, 166, 0.56)),
+      linear-gradient(45deg, #111827, #0f766e);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c6cdd5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.landing-page {
+  margin-top: 4.13rem;
+}
