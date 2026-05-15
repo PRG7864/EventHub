@@ -13,9 +13,11 @@ dotenv.config();
 const app = express();
 const server = http.createServer(app);
 const allowedOrigins = [
-  process.env.CLIENT_URL || 'https://event-hub900.vercel.app',
+  process.env.CLIENT_URL || 'https://event-booking-client.vercel.app',
   'http://localhost:5173',
-  'http://127.0.0.1:5173'
+  'http://127.0.0.1:5173',
+  'http://localhost:3000',
+  'http://127.0.0.1:3000'
 ];
 
 const corsOptions = {
@@ -26,14 +28,19 @@ const corsOptions = {
 
     return callback(new Error(`CORS blocked origin: ${origin}`));
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 const io = new Server(server, {
   cors: {
     origin: allowedOrigins,
-    methods: ['GET', 'POST']
-  }
+    methods: ['GET', 'POST'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
+  },
+  transports: ['polling', 'websocket']
 });
 
 app.use(cors(corsOptions));

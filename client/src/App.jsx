@@ -20,8 +20,24 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(!!localStorage.getItem('adminToken'))
 
   useEffect(() => {
-    // Initialize Socket.IO connection
-    const newSocket = io(SOCKET_URL)
+    // Initialize Socket.IO connection with proper configuration
+    const newSocket = io(SOCKET_URL, {
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+      reconnectionAttempts: 5,
+      transports: ['polling', 'websocket'],
+      withCredentials: true
+    })
+
+    newSocket.on('connect', () => {
+      console.log('Socket connected:', newSocket.id)
+    })
+
+    newSocket.on('connect_error', (error) => {
+      console.error('Socket connection error:', error)
+    })
+
     setSocket(newSocket)
 
     return () => newSocket.close()
