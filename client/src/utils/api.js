@@ -2,6 +2,11 @@ import axios from 'axios'
 
 const BACKEND_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
+// Log for debugging
+console.log('Environment Variables:')
+console.log('VITE_API_URL:', import.meta.env.VITE_API_URL)
+console.log('Using BACKEND_URL:', BACKEND_URL)
+
 const api = axios.create({
   baseURL: `${BACKEND_URL}/api`,
   withCredentials: true
