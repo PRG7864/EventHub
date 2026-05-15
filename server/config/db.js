@@ -13,7 +13,9 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   decimalNumbers: true,
-  ssl: true  // Enable SSL for TiDB Cloud
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 export default pool;
