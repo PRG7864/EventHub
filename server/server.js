@@ -13,7 +13,8 @@ dotenv.config();
 const app = express();
 const server = http.createServer(app);
 const allowedOrigins = [
-  process.env.CLIENT_URL || 'https://event-booking-client.vercel.app',
+  process.env.CLIENT_URL || 'https://event-hub900.vercel.app',
+  'https://event-hub900.vercel.app',
   'http://localhost:5173',
   'http://127.0.0.1:5173',
   'http://localhost:3000',
