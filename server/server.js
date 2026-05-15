@@ -41,7 +41,9 @@ const io = new Server(server, {
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
   },
-  transports: ['polling', 'websocket']
+  transports: ['websocket', 'polling'],
+  pingInterval: 25000,
+  pingTimeout: 60000
 });
 
 app.use(cors(corsOptions));
