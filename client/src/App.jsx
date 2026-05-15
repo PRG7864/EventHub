@@ -13,7 +13,7 @@ import AdminDashboard from './pages/AdminDashboard'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5001'
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://eventhub-nxj4.onrender.com'
 
 function App() {
   const [socket, setSocket] = useState(null)
